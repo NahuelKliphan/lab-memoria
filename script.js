@@ -16,6 +16,7 @@ function Click(id) {
         imagen1 = document.getElementById(id + 20);
         imagen1.className = "mostrar";
         carta1 = document.getElementById(id);
+        carta1.className="carta-delante";
         cartaOcupada = carta1;
     }
     else {
@@ -26,6 +27,7 @@ function Click(id) {
 
             imagen2 = document.getElementById(id + 20);
             imagen2.className = "mostrar";
+            carta2.className="carta-delante";
             listo = false;
             cartaOcupada = null;
             let valor = carta1.id - carta2.id;
@@ -40,7 +42,7 @@ function Click(id) {
                 }
             }
             else {
-                setTimeout(function () { Ocultar(imagen1, imagen2); }, 800);
+                setTimeout(function () { Ocultar(imagen1, imagen2,carta1,carta2); }, 800);
                 contClick++;
             }
             document.getElementById('intentos').innerHTML = contClick;
@@ -57,7 +59,7 @@ function mezclar() {
 
         let i = Math.floor(Math.random() * tamaño);
 
-        let carta = `<div class="carta" id="${cartasNumeros[i]}" onclick="Click(${cartasNumeros[i]})"><img id="${cartasNumeros[i] + 20}" class="ocultar" src="img/${imagenes[i]}"></div>`;
+        let carta = `<div class="carta-atras" id="${cartasNumeros[i]}" onclick="Click(${cartasNumeros[i]})"><img id="${cartasNumeros[i] + 20}" class="ocultar" src="img/${imagenes[i]}"></div>`;
 
         document.getElementById('tabla').innerHTML += carta;
 
@@ -70,9 +72,11 @@ function mezclar() {
     }
 }
 
-function Ocultar(img1, img2) {
+function Ocultar(img1, img2,carta1,carta2) {
     img1.className = "ocultar";
     img2.className = "ocultar";
+    carta1.className="carta-atras";
+    carta2.className="carta-atras";
     listo = true;
 }
 
