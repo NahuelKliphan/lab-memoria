@@ -64,7 +64,7 @@ function mezclar() {
 
         let i = Math.floor(Math.random() * tamaño);
 
-        let carta = `<div class="carta" id="${cartasNumeros[i]}" onclick="Click(${cartasNumeros[i]})"><img id="${cartasNumeros[i] + 20}" class="ocultar" src="/img/${imagenes[i]}"></div>`;
+        let carta = `<div class="carta" id="${cartasNumeros[i]}" onclick="Click(${cartasNumeros[i]})"><img id="${cartasNumeros[i] + 20}" class="ocultar" src="img/${imagenes[i]}"></div>`;
 
         document.getElementById('tabla').innerHTML += carta;
 
