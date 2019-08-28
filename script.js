@@ -2,6 +2,7 @@ var contClick = 0;
 var contAcierto = 0;
 var carta1 = null;
 var carta2 = null;
+var cartaA=null;
 var imagen1 = null;
 var imagen2 = null;
 var listo = true;
@@ -27,22 +28,22 @@ function Click(id) {
 
             imagen2 = document.getElementById(id + 20);
             imagen2.className = "mostrar";
-            carta2.className="carta-delante";
+            cartaA = carta2;
+            cartaA.className="carta-delante";
             listo = false;
             cartaOcupada = null;
             let valor = carta1.id - carta2.id;
             valor = Math.abs(valor);
             if (valor == 10) {
-
-                listo = true;
                 contAcierto++;
                 if (contAcierto > 8) {
                     alert("Ganaste despues de " + contClick + " intentos");
                     Reiniciar();
                 }
+                listo = true;
             }
             else {
-                setTimeout(function () { Ocultar(imagen1, imagen2,carta1,carta2); }, 800);
+                setTimeout(function () { Ocultar(imagen1, imagen2,carta1,cartaA); }, 800);
                 contClick++;
             }
             document.getElementById('intentos').innerHTML = contClick;
